@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -6,143 +6,268 @@
 <title>Para Lucy 💛</title>
 
 <style>
-
-*{
-  box-sizing:border-box;
-}
-
-html,body{
+body{
   margin:0;
-  width:100%;
-  height:100%;
-  overflow:hidden;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   font-family:Arial,sans-serif;
-  background:#02020b;
-  color:white;
+  overflow:hidden;
+  background:linear-gradient(135deg,#fff8c9,#ffd86b);
 }
 
-/* GALAXIA */
-
-#galaxia{
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 50% 50%,
-      rgba(255,210,70,.20) 0%,
-      rgba(255,160,30,.08) 12%,
-      transparent 30%),
-    radial-gradient(circle at 30% 30%,
-      rgba(100,70,255,.18),
-      transparent 35%),
-    radial-gradient(circle at 75% 70%,
-      rgba(255,180,40,.15),
-      transparent 35%),
-    #02020b;
-  transition:opacity 1.5s;
-}
-
-/* estrellas */
-
-.estrella{
-  position:absolute;
-  width:2px;
-  height:2px;
+.card{
+  width:85%;
+  max-width:400px;
+  padding:30px 20px;
+  text-align:center;
   background:white;
-  border-radius:50%;
-  animation:brillar 2s infinite alternate;
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(120,80,0,.25);
+  animation:entrada 1.5s ease;
 }
 
-@keyframes brillar{
+h1{
+  color:#d99a00;
+  font-size:35px;
+}
+
+.mensaje{
+  color:#654f16;
+  font-size:18px;
+  line-height:1.5;
+}
+
+.flores{
+  font-size:80px;
+  margin:20px 0;
+  animation:flotar 2s infinite ease-in-out;
+}
+
+.nota{
+  display:inline-block;
+  padding:10px 20px;
+  background:#fff8cf;
+  border-radius:15px;
+  color:#c58b00;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.final{
+  margin-top:20px;
+  color:#a07b20;
+}
+
+.caida{
+  position:fixed;
+  top:-30px;
+  animation:caer 6s linear forwards;
+}
+
+@keyframes entrada{
   from{
-    opacity:.2;
+    opacity:0;
     transform:scale(.7);
   }
   to{
     opacity:1;
-    transform:scale(1.7);
+    transform:scale(1);
   }
 }
 
-/* agujero negro */
-
-.agujero{
-  position:absolute;
-  width:230px;
-  height:230px;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-
-  background:#000;
-
-  box-shadow:
-    0 0 25px 8px rgba(255,190,40,.5),
-    0 0 60px 20px rgba(255,140,20,.25),
-    0 0 110px 40px rgba(100,60,255,.15);
-
-  animation:latido 4s infinite ease-in-out;
+@keyframes flotar{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
 }
 
-@keyframes latido{
-  0%,100%{
-    transform:translate(-50%,-50%) scale(1);
-  }
-
-  50%{
-    transform:translate(-50%,-50%) scale(1.06);
-  }
-}
-
-/* flores orbitando */
-
-.orbita{
-  position:absolute;
-  width:340px;
-  height:340px;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  animation:girar 14s linear infinite;
-}
-
-.flor{
-  position:absolute;
-  font-size:42px;
-}
-
-.f1{
-  top:-10px;
-  left:50%;
-}
-
-.f2{
-  right:0;
-  top:50%;
-}
-
-.f3{
-  bottom:-10px;
-  left:50%;
-}
-
-.f4{
-  left:0;
-  top:50%;
-}
-
-@keyframes girar{
+@keyframes caer{
   to{
-    transform:translate(-50%,-50%) rotate(360deg);
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Para Lucy 💛</h1>
+
+<div class="flores">
+🌻🌻🌻
+</div>
+
+<div class="nota">
+LUCY 💛
+</div>
+
+<p class="mensaje">
+Gracias por estar, por tu buena vibra y por hacer la vida más bonita con tu amistad.
+<br><br>
+¡Eres increíble! 🌻
+</p>
+
+<div class="final">
+Un detalle de amistad para ti 💛
+</div>
+
+</div>
+
+<script>
+const simbolos=["🌻","💛","✨","🌼"];
+
+function caer(){
+  const x=document.createElement("div");
+  x.className="caida";
+  x.textContent=simbolos[Math.floor(Math.random()*simbolos.length)];
+  x.style.left=Math.random()*100+"vw";
+  x.style.fontSize=(15+Math.random()*20)+"px";
+  document.body.appendChild(x);
+  setTimeout(()=>x.remove(),6000);
+}
+
+setInterval(caer,500);
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Lucy 💛</title>
+
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+  background:linear-gradient(135deg,#fff8c9,#ffd86b);
+}
+
+.card{
+  width:85%;
+  max-width:400px;
+  padding:30px 20px;
+  text-align:center;
+  background:white;
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(120,80,0,.25);
+  animation:entrada 1.5s ease;
+}
+
+h1{
+  color:#d99a00;
+  font-size:35px;
+}
+
+.mensaje{
+  color:#654f16;
+  font-size:18px;
+  line-height:1.5;
+}
+
+.flores{
+  font-size:80px;
+  margin:20px 0;
+  animation:flotar 2s infinite ease-in-out;
+}
+
+.nota{
+  display:inline-block;
+  padding:10px 20px;
+  background:#fff8cf;
+  border-radius:15px;
+  color:#c58b00;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.final{
+  margin-top:20px;
+  color:#a07b20;
+}
+
+.caida{
+  position:fixed;
+  top:-30px;
+  animation:caer 6s linear forwards;
+}
+
+@keyframes entrada{
+  from{
+    opacity:0;
+    transform:scale(.7);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
   }
 }
 
-/* pantalla inicial */
+@keyframes flotar{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
 
-#inicio{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  justify
+@keyframes caer{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Para Lucy 💛</h1>
+
+<div class="flores">
+🌻🌻🌻
+</div>
+
+<div class="nota">
+LUCY 💛
+</div>
+
+<p class="mensaje">
+Gracias por estar, por tu buena vibra y por hacer la vida más bonita con tu amistad.
+<br><br>
+¡Eres increíble! 🌻
+</p>
+
+<div class="final">
+Un detalle de amistad para ti 💛
+</div>
+
+</div>
+
+<script>
+const simbolos=["🌻","💛","✨","🌼"];
+
+function caer(){
+  const x=document.createElement("div");
+  x.className="caida";
+  x.textContent=simbolos[Math.floor(Math.random()*simbolos.length)];
+  x.style.left=Math.random()*100+"vw";
+  x.style.fontSize=(15+Math.random()*20)+"px";
+  document.body.appendChild(x);
+  setTimeout(()=>x.remove(),6000);
+}
+
+setInterval(caer,500);
+</script>
+
+</body>
+</html>
